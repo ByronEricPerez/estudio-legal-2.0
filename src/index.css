@@ -1,0 +1,287 @@
+/* ============================
+   Variables de colores
+   ============================ */
+:root {
+  --negro-profundo: #0B0C0E;
+  --gris-grafito: #1C1F22;
+  --gris-acero: #2D3135;
+  --dorado: #B58A5A;
+  --blanco-humo: #ECECEC;   /* gris claro */
+  --gris-plata: #9AA0A6;
+
+  /* Overrides Bootstrap */
+  --bs-body-color: #FFFFFF;              /* texto principal blanco */
+  --bs-body-bg: var(--negro-profundo);   /* fondo base */
+}
+
+/* ============================
+   Reset básico
+   ============================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(
+    180deg,
+    var(--negro-profundo) 95%,
+    var(--gris-grafito) 100%
+  );
+  color: var(--bs-body-color); /* blanco por defecto */
+  font-family: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* ============================
+   Tipografía
+   ============================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Pacifico', cursive;
+  color: var(--dorado);
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ============================
+   Utilidades de color
+   ============================ */
+.text-dorado {
+  color: var(--dorado);
+}
+
+.text-blanco {
+  color: #ffffff;
+}
+
+.text-humo {
+  color: var(--blanco-humo);
+}
+
+.text-plata {
+  color: var(--gris-plata);
+}
+
+.small-muted {
+  font-size: 0.9rem;
+  color: var(--gris-plata);
+}
+
+/* ============================
+   Botones
+   ============================ */
+.btn-dorado {
+  background-color: var(--dorado);
+  color: var(--negro-profundo);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-dorado:hover {
+  background-color: #d4a373;
+  color: #fff;
+}
+
+/* ============================
+   Tarjetas
+   ============================ */
+.card {
+  background-color: var(--gris-acero);
+  color: var(--bs-body-color);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+}
+
+.card-title {
+  color: var(--dorado);
+  font-family: 'Pacifico', cursive;
+}
+
+/* ============================
+   Enlaces
+   ============================ */
+a {
+  color: var(--dorado);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d4a373;
+  text-decoration: underline;
+}
+
+/* ============================
+   Navbar
+   ============================ */
+.navbar {
+  background-color: var(--negro-profundo) !important; /* aseguro fondo oscuro */
+}
+
+.navbar .nav-link {
+  color: #ffffff !important; /* todos los links en blanco */
+  transition: color 0.3s ease;
+}
+
+.navbar .navbar-brand {
+  text-decoration: none;
+}
+
+.navbar .nav-link:hover {
+  color: var(--dorado) !important; /* dorado al pasar el mouse */
+  text-decoration: none;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:focus,
+.navbar .nav-link:active {
+  color: var(--dorado) !important; /* dorado al clickear */
+}
+
+.texto-blanco {
+  color: #ffffff !important;
+}
+
+.consulta-section-clara {
+  background: linear-gradient(180deg, #ffffff 70%, #f3f3f3);
+  position: relative;
+  overflow: hidden;
+}
+
+.consulta-section-clara::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/pattern-textura.png');
+  opacity: 0.07;
+}
+
+.form-container-beige {
+  background-color: #f8f2e8; /* Beige suave */
+  border: 2px solid #000; /* borde negro alrededor */
+}
+
+.bg-beige {
+    background-color: #f8f2e8; /* Beige suave */
+    border: 2px solid #000; /* borde negro alrededor */
+}
+
+
+.form-card-beige {
+  background: transparent;
+}
+
+.form-card-claro {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #000; /* 🔲 Borde negro alrededor del formulario */
+  border-radius: 1rem;
+  max-width: 750px;
+  position: relative;
+  z-index: 2;
+}
+
+.input-elegante-claro {
+  background-color: #f8f8f8;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+.input-elegante-claro:focus {
+  background-color: #fff;
+  border-color: var(--dorado);
+  box-shadow: 0 0 0 0.25rem rgba(218, 165, 32, 0.25);
+  color: #000;
+}
+
+.texto-negro {
+  color: #111 !important;
+}
+
+/* 🌟 Botón dorado llamativo */
+.btn-enviar {
+  background: linear-gradient(135deg, #f0c14b, #d4a017);
+  color: #111;
+  border: none;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.8rem 2.2rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(212, 160, 23, 0.4);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ✨ Efecto de brillo dorado animado */
+.btn-brillo {
+  position: relative;
+  overflow: hidden;
+  animation: pulsoDorado 2.5s infinite ease-in-out;
+}
+
+.btn-brillo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: brillo 3s infinite linear;
+}
+
+/* ✨ Animaciones */
+@keyframes brillo {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+@keyframes pulsoDorado {
+  0% {
+    box-shadow: 0 0 10px rgba(212, 160, 23, 0.4),
+      0 0 20px rgba(212, 160, 23, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(212, 160, 23, 0.6),
+      0 0 40px rgba(212, 160, 23, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(212, 160, 23, 0.4),
+      0 0 20px rgba(212, 160, 23, 0.3);
+  }
+}
+
+/* Estado deshabilitado */
+.btn-disabled {
+  background: #ddd !important;
+  color: #888 !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
