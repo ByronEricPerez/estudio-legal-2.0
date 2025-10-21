@@ -1,4 +1,3 @@
-import React from "react";
 import { Shield, FileText, Scale } from "lucide-react";
 
 export default function Legal() {

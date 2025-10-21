@@ -1,4 +1,3 @@
-import React from "react";
 import { FileText, ShieldCheck, Clock, Users, CheckCircle } from "lucide-react";
 import ConsultationForm from "../components/ConsultationForm";
 

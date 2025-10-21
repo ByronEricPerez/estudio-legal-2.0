@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Mail, Phone, User, FileText } from "lucide-react";
 
 export default function ConsultationForm() {
   const [form, setForm] = useState({
     name: "",
-    lastname: "",
+    lastName: "",
     dni: "",
     email: "",
     phone: "",
@@ -12,46 +12,27 @@ export default function ConsultationForm() {
     message: "",
   });
 
-  const servicios = [
-    { title: "Derecho Laboral" },
-    { title: "Derecho de Familia" },
-    { title: "Derecho Penal" },
-    { title: "Derecho Civil" },
-    { title: "Contratos" },
-    { title: "Comercial" },
-    { title: "Inmobiliario" },
-    { title: "Seguros" },
-    { title: "Herencias" },
-    { title: "Contravencional" },
-    { title: "Consumidores" },
-    { title: "Propiedad Intelectual" },
-  ];
-
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
 
-    // Evitar caracteres no numéricos en DNI
-    if (name === "dni") {
-      const onlyNumbers = value.replace(/\D/g, ""); // elimina letras o símbolos
-      if (onlyNumbers.length <= 8) {
-        setForm({ ...form, [name]: onlyNumbers });
-      }
-      return;
-    }
+    // Solo permitir números en dni y phone
+    if ((name === "dni" || name === "phone") && /\D/.test(value)) return;
 
     setForm({ ...form, [name]: value });
   };
 
   const isFormComplete =
     form.name &&
-    form.lastname &&
+    form.lastName &&
     form.dni &&
     form.email &&
     form.phone &&
     form.type &&
     form.message;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isFormComplete) return;
     alert("Consulta simulada enviada — integra el backend para producción");
@@ -60,7 +41,7 @@ export default function ConsultationForm() {
   return (
     <form onSubmit={handleSubmit} className="form-card-beige p-4">
       <div className="row g-4">
-        {/* NOMBRE */}
+        {/* Nombre y Apellido */}
         <div className="col-md-6">
           <label className="form-label texto-negro fw-semibold">
             <User className="me-2" size={18} />
@@ -76,15 +57,14 @@ export default function ConsultationForm() {
           />
         </div>
 
-        {/* APELLIDO */}
         <div className="col-md-6">
           <label className="form-label texto-negro fw-semibold">
             <User className="me-2" size={18} />
             Apellido
           </label>
           <input
-            name="lastname"
-            value={form.lastname}
+            name="lastName"
+            value={form.lastName}
             onChange={handleChange}
             className="form-control input-elegante-claro"
             placeholder="Ej: Pérez"
@@ -93,25 +73,21 @@ export default function ConsultationForm() {
         </div>
 
         {/* DNI */}
-        <div className="col-md-12">
+        <div className="col-md-6">
           <label className="form-label texto-negro fw-semibold">
-            <FileText className="me-2" size={18} />
             DNI
           </label>
           <input
-            type="text"
             name="dni"
             value={form.dni}
             onChange={handleChange}
             className="form-control input-elegante-claro"
-            placeholder="Ej: 40123456"
-            inputMode="numeric"
-            pattern="[0-9]*"
+            placeholder="Ej: 12345678"
             required
           />
         </div>
 
-        {/* EMAIL */}
+        {/* Email */}
         <div className="col-md-6">
           <label className="form-label texto-negro fw-semibold">
             <Mail className="me-2" size={18} />
@@ -127,7 +103,7 @@ export default function ConsultationForm() {
           />
         </div>
 
-        {/* TELÉFONO */}
+        {/* Teléfono */}
         <div className="col-md-6">
           <label className="form-label texto-negro fw-semibold">
             <Phone className="me-2" size={18} />
@@ -143,7 +119,7 @@ export default function ConsultationForm() {
           />
         </div>
 
-        {/* TIPO DE CONSULTA */}
+        {/* Tipo de consulta */}
         <div className="col-md-6">
           <label className="form-label texto-negro fw-semibold">
             <FileText className="me-2" size={18} />
@@ -157,15 +133,23 @@ export default function ConsultationForm() {
             required
           >
             <option value="">Seleccione...</option>
-            {servicios.map((s, i) => (
-              <option key={i} value={s.title}>
-                {s.title}
-              </option>
-            ))}
+            <option>Derecho Laboral</option>
+            <option>Derecho de Familia</option>
+            <option>Derecho Penal</option>
+            <option>Derecho Civil</option>
+            <option>Contratos</option>
+            <option>Comercial</option>
+            <option>Inmobiliario</option>
+            <option>Seguros</option>
+            <option>Herencias</option>
+            <option>Contravencional</option>
+            <option>Consumidores</option>
+            <option>Propiedad Intelectual</option>
+            <option>Otros</option>
           </select>
         </div>
 
-        {/* DETALLE */}
+        {/* Detalle */}
         <div className="col-12">
           <label className="form-label texto-negro fw-semibold">Detalle</label>
           <textarea
@@ -180,7 +164,6 @@ export default function ConsultationForm() {
         </div>
       </div>
 
-      {/* BOTÓN */}
       <div className="text-center mt-5">
         <button
           className={`btn-enviar ${
@@ -195,6 +178,8 @@ export default function ConsultationForm() {
     </form>
   );
 }
+
+
 
 
 
